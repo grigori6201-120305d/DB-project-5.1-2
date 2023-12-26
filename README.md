@@ -4,7 +4,7 @@
 
 ## Описание проекта
 
-CSV файл по данной теме - [Kaggle]((https://www.kaggle.com/datasets/michaelbryantds/reflectance-spectra-of-carbonaceous-asteroids)
+CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datasets/michaelbryantds/reflectance-spectra-of-carbonaceous-asteroids)
 
 ### Структура
 >Эти данные взяты из представленной работы: "Космическое выветривание 3-мкм филлосиликатов, индуцированное импульсным лазерным
