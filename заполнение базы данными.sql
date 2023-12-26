@@ -1,5 +1,5 @@
 USE reflectance;
-/LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.1\\Uploads\\difference spectra.csv'
+LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.1\\Uploads\\difference spectra.csv'
 INTO TABLE differencespectra
 FIELDS TERMINATED BY ',' 
 ENCLOSED BY '"' 

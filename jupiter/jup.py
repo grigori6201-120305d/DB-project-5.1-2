@@ -1,4 +1,4 @@
-mport mysql.connector
+import mysql.connector
 import pandas as pd
 
 connection = mysql.connector.connect(
