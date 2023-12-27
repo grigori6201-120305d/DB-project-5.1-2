@@ -75,14 +75,8 @@ ENGINE = InnoDB;
 
  Фрагмент кода.
 
-USE reflectance;
-LOAD DATA INFILE 'C:\\ProgramData\\MySQL\\MySQL Server 8.1\\Uploads\\difference spectra.csv'
-INTO TABLE differencespectra
-FIELDS TERMINATED BY ',' 
-ENCLOSED BY '"' 
-LINES TERMINATED BY '\n'
-IGNORE 1 ROWS
-(Wavelength, CMVacuumAmbientDiff, CIVacuumAmbientDiff);
+![Uploading image.png…]()
+
 
 
 Результатом работы кода будет наполнение таблиц данными с учетом разделения по столбцам и типом лазеров(CI или CM).
