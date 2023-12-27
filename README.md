@@ -24,38 +24,7 @@ CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datase
 
 Фрагмент кода создания базы данных.
 
-
-
-CREATE SCHEMA IF NOT EXISTS Reflectance DEFAULT CHARACTER SET utf8 ;
-USE Reflectance ;
-
-
--- Table Reflectance. LaserIrradiation
-
-CREATE TABLE IF NOT EXISTS Reflectance. LaserIrradiation (
-  Wavelength DOUBLE NOT NULL,
-  Type VARCHAR(2) NOT NULL,
-  Fresh DOUBLE NULL,
-  Pulse1 DOUBLE NULL,
-  Pulse2 DOUBLE NULL,
-  Pulse3 DOUBLE NULL,
-  Pulse5 DOUBLE NULL,
-  PRIMARY KEY (Wavelength, Type))
-ENGINE = InnoDB;
-
-
--- Table Reflectance.Parameters
-
-
-CREATE TABLE IF NOT EXISTS Reflectance.Parameters (
-  Type VARCHAR(2) NOT NULL,
-  LaserPulses INT NOT NULL,
-  NormalizedIntensity DOUBLE NULL,
-  Slope DOUBLE NULL,
-  BandDepth DOUBLE NULL,
-  PRIMARY KEY (Type, LaserPulses))
-ENGINE = InnoDB;
-
+![image](https://github.com/nstk24/DB-project-5.1-2/assets/147483665/3e85dd1b-c3a7-4c29-9e51-ef7192f44609)
 
 
 
