@@ -24,8 +24,11 @@ CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datase
 
 Фрагмент кода создания базы данных.
 
+
+
 CREATE SCHEMA IF NOT EXISTS Reflectance DEFAULT CHARACTER SET utf8 ;
 USE Reflectance ;
+
 
 -- Table Reflectance. LaserIrradiation
 
@@ -40,7 +43,9 @@ CREATE TABLE IF NOT EXISTS Reflectance. LaserIrradiation (
   PRIMARY KEY (Wavelength, Type))
 ENGINE = InnoDB;
 
+
 -- Table Reflectance.Parameters
+
 
 CREATE TABLE IF NOT EXISTS Reflectance.Parameters (
   Type VARCHAR(2) NOT NULL,
@@ -50,6 +55,8 @@ CREATE TABLE IF NOT EXISTS Reflectance.Parameters (
   BandDepth DOUBLE NULL,
   PRIMARY KEY (Type, LaserPulses))
 ENGINE = InnoDB;
+
+
 
 
 Код был написан с помощью функции Forward Engineering. В результате получается база данных с название Reflectance и добавляет в нее таблицы LaserIrradiation, Parameters, ScaledReflectance, VacuumAmbientDiff и DifferenceSpectra.
