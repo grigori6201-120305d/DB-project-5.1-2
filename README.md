@@ -37,7 +37,10 @@ CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datase
 
 
 ### Нормализация данных
->
+>На данном этапе выполнения коллективного проекта были созданы ключевые столбцы внутри EER-диаграммы, которые позволяют объединять таблицы на основе  повторяющихся столбцов. 
+
+Примером столбцов, по которым производилось объединение являются Wavelength из таблиц LaserIrradiation и ScaledReflectance, а также Type из таблиц ScaledReflectance и parametrs. 
+За счет этого становится возможным объединение таблиц  LaserIrradiation и  parametrs, на основе общих столбцов. 
 
 ### Заполнение БД данными
 > На данном этапе выполнения коллективного проекта, таблицы базы данных заполнялись данными из предоставленных CSV файлов, с использованием функции LOAD DATA INFILE.
@@ -45,9 +48,6 @@ CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datase
  Фрагмент кода.
 
 ![image](https://github.com/nstk24/DB-project-5.1-2/assets/147483665/49e09ed7-2795-485d-98cd-6f9717836016)
-
-
-
 
 Результатом работы кода будет наполнение таблиц данными с учетом разделения по столбцам и типом лазеров(CI или CM).
 
@@ -66,18 +66,62 @@ CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datase
 >
 
 
-
-
 ### Тестирование БД
->
+>На данном этапе выполнения коллективного проекта производилось тестирование базы данных. В ходе выполнения задачи применялись различные методики для обеспечения её надёжности и эффективности. Были использованы автоматизированные инструменты для выполнения тестов на функциональность, производительность и безопасность. Проверялись сценарии работы с данными, включая добавление, обновление, извлечение и удаление, чтобы убедиться в корректности операций.
+>Здесь происходит добавление значений в каждую таблицу нашей базы данных.
+INSERT INTO Reflectance.LaserIrradiation (Wavelength, Type, Fresh, Pulse1, Pulse2, Pulse3, Pulse5) 
+VALUES (700, 'IR', 1.2, 1.3, 1.4, 1.5, 1.6);
+
+INSERT INTO Reflectance.Parameters (Type, LaserPulses, NormalizedIntensity, Slope, BandDepth) 
+VALUES ('IR', 5, 0.8, 0.03, 0.5);
+
+INSERT INTO Reflectance.ScaledReflectance (Wavelength, Type, Fresh, Pulse1, Pulse5) 
+VALUES (700, 'IR', 1.2, 1.3, 1.6);
+
+INSERT INTO Reflectance.VacuumAmbientDiff (Wavelength, CMAmbient, CMVacuum, CIAmbient, CIVacuum) 
+VALUES (700, 0.1, 0.2, 0.3, 0.4);
+
+INSERT INTO Reflectance.DifferenceSpectra (Wavelength, CMVacuumAmbientDiff, CIVacuumAmbientDiff) 
+VALUES (700, 0.1, 0.2);
+![image](https://github.com/nstk24/DB-project-5.1-2/assets/147878015/d950859a-227b-4350-a216-fc42a32c51e0)
+![image](https://github.com/nstk24/DB-project-5.1-2/assets/147878015/9faedf18-4fea-4bb7-b0b6-ecb15c735f93)
+
+
 
 ## Дополнительные задачи
 
-### Web-сервер [db4free.net](https://db4free.net/)
->
+### Web-сервер [db4free.net](https://db4free.net/) 
+>![image](https://github.com/nstk24/DB-project-5.1-2/assets/147878015/771c220e-91a3-4b01-8563-db36f9d47789)
+>![image](https://github.com/nstk24/DB-project-5.1-2/assets/147878015/eafee8b8-3e02-4cc9-a3b8-6ed682d937e1)
+>![image](https://github.com/nstk24/DB-project-5.1-2/assets/147878015/2e9c4699-bbff-4d10-97e9-62bb96e5aab0)
+
+
 
 ### Создать Jupiter notebook для извлечения основных данных из созданной базы данных.
->
+>На данном этапе выполнения коллективного проекта для работы с базой данных в Jupyter Notebook использовались библиотеки Pandas и SQL connector. Применялся Python код для подключения к базе данных, выполнения SQL-запросов и извлечения необходимых данных. Эти данные затем подвергались анализу и визуализации, используя функционал Jupyter Notebook для удобного представления результатов.
+>Применяемый код.
+
+import mysql.connector
+import pandas as pd
+
+connection = mysql.connector.connect(
+  host="localhost",
+  user="stud",
+  password="student",
+  database="reflectance"
+)
+cursor = connection.cursor()
+query = "SELECT * FROM parameters"      
+cursor.execute(query)
+rows = cursor.fetchall()
+Baza = pd.DataFrame(rows)
+for row in rows:
+   print(row)
+
+
+cursor.close()
+connection.close()
+
 ### Создать Docker для разворачивания созданной базы данных
 >
 
