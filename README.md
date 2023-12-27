@@ -63,7 +63,8 @@ ENGINE = InnoDB;
 
 
 ### Создание ER-диаграммы
->
+>![image](https://github.com/nstk24/DB-project-5.1-2/assets/147483665/29c5d587-0299-433c-9b83-3401b337f166)
+
 
 
 ### Нормализация данных
