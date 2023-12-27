@@ -27,9 +27,8 @@ CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datase
 CREATE SCHEMA IF NOT EXISTS Reflectance DEFAULT CHARACTER SET utf8 ;
 USE Reflectance ;
 
--- -----------------------------------------------------
 -- Table Reflectance. LaserIrradiation
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS Reflectance. LaserIrradiation (
   Wavelength DOUBLE NOT NULL,
   Type VARCHAR(2) NOT NULL,
@@ -41,10 +40,8 @@ CREATE TABLE IF NOT EXISTS Reflectance. LaserIrradiation (
   PRIMARY KEY (Wavelength, Type))
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
 -- Table Reflectance.Parameters
--- -----------------------------------------------------
+
 CREATE TABLE IF NOT EXISTS Reflectance.Parameters (
   Type VARCHAR(2) NOT NULL,
   LaserPulses INT NOT NULL,
