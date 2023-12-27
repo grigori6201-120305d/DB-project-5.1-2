@@ -75,7 +75,8 @@ ENGINE = InnoDB;
 
  Фрагмент кода.
 
-![Uploading image.png…]()
+![image](https://github.com/nstk24/DB-project-5.1-2/assets/147483665/49e09ed7-2795-485d-98cd-6f9717836016)
+
 
 
 
