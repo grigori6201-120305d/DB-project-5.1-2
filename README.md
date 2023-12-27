@@ -20,10 +20,47 @@ CSV файл по данной теме - [Kaggle](https://www.kaggle.com/datase
 ## Процесс создания коллективного проекта
 
 ### Создание базы данных
->
+>На данном этапе выполнения коллективного проекта, была создана база данных, с помощь функции create model в MySQL Workbench. Она содержит пять таблиц, сформированных на основе, предоставленных CSV файлов, в которых указана информация об отражении астероидов, надстройках лазера, количестве импульсов и т. п.
+
+Фрагмент кода создания базы данных.
+
+CREATE SCHEMA IF NOT EXISTS Reflectance DEFAULT CHARACTER SET utf8 ;
+USE Reflectance ;
+
+-- -----------------------------------------------------
+-- Table Reflectance. LaserIrradiation
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS Reflectance. LaserIrradiation (
+  Wavelength DOUBLE NOT NULL,
+  Type VARCHAR(2) NOT NULL,
+  Fresh DOUBLE NULL,
+  Pulse1 DOUBLE NULL,
+  Pulse2 DOUBLE NULL,
+  Pulse3 DOUBLE NULL,
+  Pulse5 DOUBLE NULL,
+  PRIMARY KEY (Wavelength, Type))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table Reflectance.Parameters
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS Reflectance.Parameters (
+  Type VARCHAR(2) NOT NULL,
+  LaserPulses INT NOT NULL,
+  NormalizedIntensity DOUBLE NULL,
+  Slope DOUBLE NULL,
+  BandDepth DOUBLE NULL,
+  PRIMARY KEY (Type, LaserPulses))
+ENGINE = InnoDB;
+
+
+Код был написан с помощью функции Forward Engineering. В результате получается база данных с название Reflectance и добавляет в нее таблицы LaserIrradiation, Parameters, ScaledReflectance, VacuumAmbientDiff и DifferenceSpectra.
+
 
 ### Создание ER-диаграммы
 >
+
 
 ### Нормализация данных
 >
